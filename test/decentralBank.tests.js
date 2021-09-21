@@ -1,3 +1,4 @@
+const { assert } = require('console')
 
 const Tether = artifacts.require('Tether')
 const Reward = artifacts.require('Reward')
@@ -65,6 +66,8 @@ contract('DecentralBank',([owner, customer]) =>{
         result = await tether.balanceOf(decentralBank.address)
         assert.equal(result.toString(), tokens('0'), 'decental bank mock wallet balance after staking from customer')
    
+        result = await decentralBank.isStaked(customer)
+        assert.equal(result.toString(),'true','customer is staking status after staking')
         })
     })
 })
