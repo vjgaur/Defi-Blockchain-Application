@@ -26,6 +26,7 @@ contract DecentralBank {
         tether.transferFrom(msg.sender, address(this), _amount);
         //update staking balance
         stakingBalance[msg.sender] += _amount;
+
         if (!hasStaked[msg.sender]) {
             stakers.push(msg.sender);
         }

@@ -14,8 +14,9 @@ module.exports = async function (deployer,network,accounts){
     await deployer.deploy(DecentralBank, reward.address,tether.address)
     const decentralisedBank = await DecentralBank.deployed()
     
-    
+    //Transfer all the tokens to DecentralBank
     await reward.transfer(decentralisedBank.address,'1000000000000000000000000')
-    await tether.transfer(accounts[1], '1000000000000000000')
+   //Transfer 100 mock tether tokens to investor
+    await tether.transfer(accounts[1], '100000000000000000000')
     
 };

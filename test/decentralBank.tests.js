@@ -1,4 +1,4 @@
-const { assert } = require('console')
+var assert = require('chai').assert
 
 const Tether = artifacts.require('Tether')
 const Reward = artifacts.require('Reward')
@@ -7,7 +7,7 @@ require('chai')
 .use(require('chai-as-promised'))
 .should()
 contract('DecentralBank',([owner, customer]) =>{
-
+//All the code goes here for test cases
     let tether, reward, decentralBank
     function tokens(number){
         return web3.utils.toWei(number,'ether')
