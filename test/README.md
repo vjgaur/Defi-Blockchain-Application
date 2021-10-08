@@ -1,6 +1,11 @@
+Project Brief:
+
 DApp Development using - Smart Contracts - Solidity, Web3, React, Mocha, Ethereum Blockchain Programming for Front-end
 
-List of Technologies, Languages, Framework and Libraries used in this project :
+This is a Token staking and Widthdrawal Dapp application where a investor can stake his token and gets rewards for it and also can widthdraw tokens at any point of time. The application interacts with Metamask Wallet for deposit and widthdrawal token on Ethereum Testnet. 
+
+List of Technologies, Languages, Framework and Libraries are used in this project - 
+
 Solidity
 
 Ethereum Blockchain
