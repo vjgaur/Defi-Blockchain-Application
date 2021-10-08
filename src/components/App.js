@@ -8,6 +8,7 @@ import RWD from '../truffle_abis/Reward.json'
 import DecentralBank from '../truffle_abis/DecentralBank.json'
 import ParticleSettings from './ParticleSettings'
 
+//Complete Dapp application 
 class App extends Component {
 
   async componentWillMount() {
