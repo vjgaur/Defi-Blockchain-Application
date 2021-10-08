@@ -17,6 +17,7 @@ contract DecentralBank {
     constructor(Reward _reward, Tether _tether) public {
         reward = _reward;
         tether = _tether;
+        owner = msg.sender;
     }
 
     //staking function
@@ -32,5 +33,26 @@ contract DecentralBank {
         }
         isStaked[msg.sender] = true;
         hasStaked[msg.sender] = true;
+    }
+
+    //issue tokens
+    function issueTokens() public {
+        require(msg.sender == owner, "caller must be the owner");
+        for (uint256 i = 0; i < stakers.length; i++) {
+            address recipient = stakers[i];
+            uint256 balance = stakingBalance[recipient] / 9;
+            if (balance > 0) {
+                reward.transfer(recipient, balance);
+            }
+        }
+    }
+
+    function unstakeTokens() public {
+        uint256 balance = stakingBalance[msg.sender];
+        require(balance > 0, "staking balance can not be less then zero");
+        tether.transfer(msg.sender, balance);
+
+        stakingBalance[msg.sender] = 0;
+        isStaked[msg.sender] = false;
     }
 }
